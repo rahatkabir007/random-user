@@ -38,12 +38,12 @@ function App() {
     const details = [
       `Hello, I am ${user.name.first} ${user.name.last}`,
       `My Email is ${user.email}`,
-      `I was born ${user.dob.date.slice(0, 10)}`,
+      `I was born in ${user.dob.date.slice(0, 10)}`,
       `I live in ${user.location.country}`,
       `My Contact No. is ${user.phone}`,
-      `My password is ${user.login.password}`,
+      `My Password is ${user.login.password}`,
     ]
-    return <h2 style={style}>{details[activeLink]}</h2>
+    return <h2 style={style} className="details">{details[activeLink]}</h2>
   }
 
   const activeLinkHandler = (index) => {
@@ -51,17 +51,17 @@ function App() {
   }
 
   const style = {
-    color: "#FEA82F",
+    color: "#082032",
   }
   return (
     <div className="App">
       <div className="container">
-        <h1 style={style}>RANDOM USER GENERATOR</h1>
+        <h1 style={style} className="header">RANDOM USER GENERATOR</h1>
         <Button activeUser={activeUser} getUser={getUser}></Button>
         {loading ?
           <h4>Loading...</h4> : <div className="app-user">
             {
-              users.map((user, index) => {
+              users.slice(0,2).map((user) => {
                 return (
                   <Fragment key={user.cell}>
                     <img src={user.picture.large} alt="UserPicture" />
